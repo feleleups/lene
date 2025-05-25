@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artesanato em Vidro e Cerâmica - Peças Pintadas à Mão</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#3176FF',secondary:''},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        input:focus {
+            outline: none;
+        }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .hero-section {
+            background-image: url('https://readdy.ai/api/search-image?query=A%20beautiful%20handpainted%20glass%20vase%20with%20delicate%20flowers%2C%20soft%20pastel%20colors%2C%20elegant%20brushstrokes%2C%20blending%20seamlessly%20with%20a%20light%20neutral%20background%20on%20the%20left%20side%20for%20text%20placement%2C%20high-end%20product%20photography%20style%2C%20soft%20natural%20lighting%2C%20minimalist%20composition%2C%20perfect%20for%20an%20e-commerce%20hero%20image&width=1920&height=800&seq=12345&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-overlay {
+            background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0.4) 100%);
+        }
+        .newsletter-section {
+            background-color: #f8f9fa;
+        }
+        .category-card {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+        }
+        .category-card img {
+            transition: transform 0.5s ease;
+        }
+        .category-card:hover img {
+            transform: scale(1.05);
+        }
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .handmade-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #f8f9fa;
+            color: #333;
+            padding: 4px 8px;
+            font-size: 0.7rem;
+            border-radius: 4px;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Cabeçalho (Header) -->
+    <header class="w-full bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <a href="#" class="text-2xl font-['Pacifico'] text-primary">logo</a>
+            </div>
+            
+            <!-- Menu de navegação -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#" class="text-gray-700 hover:text-primary font-medium transition-colors">Vasos</a>
+                <a href="#" class="text-gray-700 hover:text-primary font-medium transition-colors">Xícaras</a>
+                <a href="#" class="text-gray-700 hover:text-primary font-medium transition-colors">Coleções</a>
+                <a href="#" class="text-gray-700 hover:text-primary font-medium transition-colors">Sobre Nós</a>
+            </nav>
+            
+            <!-- Ícones e botão de login -->
+            <div class="flex items-center space-x-4">
+                <!-- Busca -->
+                <div class="relative hidden md:block">
+                    <input type="text" placeholder="Buscar..." class="pl-10 pr-4 py-2 border border-gray-200 rounded-button text-sm focus:border-primary transition-colors">
+                    <div class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+                        <i class="ri-search-line"></i>
+                    </div>
+                </div>
+                
+                <!-- Carrinho -->
+                <div class="relative w-10 h-10 flex items-center justify-center cursor-pointer">
+                    <i class="ri-shopping-cart-line text-gray-700 ri-lg"></i>
+                    <span class="absolute -top-1 -right-1 bg-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">3</span>
+                </div>
+                
+                <!-- Menu mobile -->
+                <div class="md:hidden w-10 h-10 flex items-center justify-center cursor-pointer">
+                    <i class="ri-menu-line text-gray-700 ri-lg"></i>
+                </div>
+                
+                <!-- Botão de login -->
+                <button class="hidden md:block bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap hover:bg-blue-600 transition-colors">
+                    Entrar / Cadastrar
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Espaço para compensar o header fixo -->
+    <div class="h-16"></div>
+
+    <!-- Banner Principal (Hero) -->
+    <section class="hero-section w-full relative">
+        <div class="hero-overlay w-full h-full absolute inset-0"></div>
+        <div class="container mx-auto px-4 py-24 md:py-32 relative z-10">
+            <div class="w-full max-w-xl">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Arte em Vidro e Cerâmica</h1>
+                <p class="text-xl text-gray-700 mb-8">Peças únicas pintadas à mão em São Paulo, criadas com amor e dedicação para trazer beleza ao seu lar.</p>
+                <button class="bg-primary text-white px-6 py-3 !rounded-button whitespace-nowrap hover:bg-blue-600 transition-colors font-medium flex items-center">
+                    Explorar Coleção
+                    <div class="w-5 h-5 flex items-center justify-center ml-2">
+                        <i class="ri-arrow-right-line"></i>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorias em Destaque -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Nossas Categorias</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Categoria 1: Vasos Decorativos -->
+                <div class="category-card rounded overflow-hidden shadow-md relative">
+                    <img src="https://readdy.ai/api/search-image?query=Beautiful%20handpainted%20decorative%20glass%20vases%20with%20floral%20patterns%2C%20elegant%20brushstrokes%2C%20pastel%20colors%2C%20high-quality%20product%20photography%20on%20light%20neutral%20background%2C%20soft%20lighting%2C%20minimalist%20composition&width=600&height=600&seq=12346&orientation=squarish" alt="Vasos Decorativos" class="w-full h-full object-cover object-top">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                        <div class="p-6 w-full">
+                            <h3 class="text-xl font-bold text-white mb-2">Vasos Decorativos</h3>
+                            <a href="#" class="text-white flex items-center text-sm hover:text-primary transition-colors">
+                                Ver coleção
+                                <div class="w-4 h-4 flex items-center justify-center ml-1">
+                                    <i class="ri-arrow-right-line"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Categoria 2: Xícaras Artesanais -->
+                <div class="category-card rounded overflow-hidden shadow-md relative">
+                    <img src="https://readdy.ai/api/search-image?query=Handpainted%20ceramic%20coffee%20cups%20and%20mugs%20with%20delicate%20floral%20designs%2C%20artistic%20brushstrokes%2C%20pastel%20colors%2C%20high-quality%20product%20photography%20on%20light%20neutral%20background%2C%20soft%20lighting%2C%20minimalist%20composition&width=600&height=600&seq=12347&orientation=squarish" alt="Xícaras Artesanais" class="w-full h-full object-cover object-top">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                        <div class="p-6 w-full">
+                            <h3 class="text-xl font-bold text-white mb-2">Xícaras Artesanais</h3>
+                            <a href="#" class="text-white flex items-center text-sm hover:text-primary transition-colors">
+                                Ver coleção
+                                <div class="w-4 h-4 flex items-center justify-center ml-1">
+                                    <i class="ri-arrow-right-line"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Categoria 3: Peças Exclusivas -->
+                <div class="category-card rounded overflow-hidden shadow-md relative">
+                    <img src="https://readdy.ai/api/search-image?query=Exclusive%20handpainted%20glass%20and%20ceramic%20art%20pieces%2C%20unique%20designs%2C%20elegant%20floral%20patterns%2C%20artistic%20brushstrokes%2C%20pastel%20colors%2C%20high-quality%20product%20photography%20on%20light%20neutral%20background%2C%20soft%20lighting%2C%20minimalist%20composition&width=600&height=600&seq=12348&orientation=squarish" alt="Peças Exclusivas" class="w-full h-full object-cover object-top">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                        <div class="p-6 w-full">
+                            <h3 class="text-xl font-bold text-white mb-2">Peças Exclusivas</h3>
+                            <a href="#" class="text-white flex items-center text-sm hover:text-primary transition-colors">
+                                Ver coleção
+                                <div class="w-4 h-4 flex items-center justify-center ml-1">
+                                    <i class="ri-arrow-right-line"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Produtos em Destaque -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4">Produtos em Destaque</h2>
+            <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">Conheça nossas peças mais amadas, cada uma pintada à mão com carinho e atenção aos detalhes.</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Produto 1 -->
+                <div class="product-card bg-white rounded shadow-sm overflow-hidden relative">
+                    <span class="handmade-badge">Feito à Mão</span>
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=Elegant%20handpainted%20glass%20vase%20with%20delicate%20pink%20roses%20pattern%2C%20soft%20brushstrokes%2C%20high-quality%20product%20photography%20on%20light%20neutral%20background%2C%20soft%20lighting%2C%20minimalist%20composition&width=500&height=500&seq=12349&orientation=squarish" alt="Vaso Flores Primavera" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-800 mb-2">Vaso Flores da Primavera</h3>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-lg font-bold text-gray-900">R$ 189,90</span>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <span class="text-sm text-gray-600 ml-1">4.8</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-primary text-white py-2 !rounded-button whitespace-nowrap hover:bg-blue-600 transition-colors">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Produto 2 -->
+                <div class="product-card bg-white rounded shadow-sm overflow-hidden relative">
+                    <span class="handmade-badge">Feito à Mão</span>
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=Handpainted%20ceramic%20coffee%20mug%20with%20blue%20floral%20pattern%2C%20artistic%20brushstrokes%2C%20high-quality%20product%20photography%20on%20light%20neutral%20background%2C%20soft%20lighting%2C%20minimalist%20composition&width=500&height=500&seq=12350&orientation=squarish" alt="Xícara Azul Celeste" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-800 mb-2">Xícara Azul Celeste</h3>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-lg font-bold text-gray-900">R$ 79,90</span>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <span class="text-sm text-gray-600 ml-1">4.9</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-primary text-white py-2 !rounded-button whitespace-nowrap hover:bg-blue-600 transition-colors">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Produto 3 -->
+                <div class="product-card bg-white rounded shadow-sm overflow-hidden relative">
+                    <span class="handmade-badge">Feito à Mão</span>
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=Handpainted%20glass%20teacup%20set%20with%20matching%20saucer%2C%20delicate%20purple%20floral%20pattern%2C%20elegant%20brushstrokes%2C%20high-quality%20product%20photography%20on%20light%20neutral%20background%2C%20soft%20lighting%2C%20minimalist%20composition&width=500&height=500&seq=12351&orientation=squarish" alt="Conjunto Chá Lavanda" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-800 mb-2">Conjunto de Chá Lavanda</h3>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-lg font-bold text-gray-900">R$ 159,90</span>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <span class="text-sm text-gray-600 ml-1">4.7</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-primary text-white py-2 !rounded-button whitespace-nowrap hover:bg-blue-600 transition-colors">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Produto 4 -->
+                <div class="product-card bg-white rounded shadow-sm overflow-hidden relative">
+                    <span class="handmade-badge">Feito à Mão</span>
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=Tall%20handpainted%20glass%20vase%20with%20sunflower%20design%2C%20vibrant%20yellow%20and%20green%20colors%2C%20artistic%20brushstrokes%2C%20high-quality%20product%20photography%20on%20light%20neutral%20background%2C%20soft%20lighting%2C%20minimalist%20composition&width=500&height=500&seq=12352&orientation=squarish" alt="Vaso Girassóis" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-800 mb-2">Vaso Girassóis</h3>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-lg font-bold text-gray-900">R$ 219,90</span>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <span class="text-sm text-gray-600 ml-1">5.0</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-primary text-white py-2 !rounded-button whitespace-nowrap hover:bg-blue-600 transition-colors">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center text-primary hover:text-blue-700 font-medium">
+                    Ver todos os produtos
+                    <div class="w-5 h-5 flex items-center justify-center ml-1">
+                        <i class="ri-arrow-right-line"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nossa História -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="https://readdy.ai/api/search-image?query=Female%20artist%20painting%20delicate%20floral%20patterns%20on%20glass%20vase%20in%20bright%20artistic%20studio%2C%20focused%20expression%2C%20artistic%20environment%20with%20paint%20brushes%20and%20supplies%2C%20soft%20natural%20lighting%2C%20S%C3%A3o%20Paulo%20studio%20atmosphere&width=600&height=700&seq=12353&orientation=portrait" alt="Nossa História" class="w-full h-auto rounded-lg shadow-md">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6">Nossa História</h2>
+                    <p class="text-gray-700 mb-4">Fundada em 2018 por Mariana Oliveira, nossa oficina nasceu de uma paixão por transformar vidro e cerâmica em verdadeiras obras de arte. Cada peça que criamos conta uma história e carrega a essência da arte brasileira.</p>
+                    <p class="text-gray-700 mb-6">Em nosso ateliê no coração de São Paulo, combinamos técnicas tradicionais com designs contemporâneos. Trabalhamos com tintas especiais não-tóxicas e cada item passa por um processo cuidadoso de pintura e queima para garantir durabilidade e beleza.</p>
+                    
+                    <div class="flex items-center mb-8">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                            <div class="w-6 h-6 flex items-center justify-center text-primary">
+                                <i class="ri-paint-brush-line"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">Feito à Mão em São Paulo</h3>
+                            <p class="text-gray-600 text-sm">Cada peça é única e feita com amor</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                            <div class="w-6 h-6 flex items-center justify-center text-primary">
+                                <i class="ri-recycle-line"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900">Materiais Sustentáveis</h3>
+                            <p class="text-gray-600 text-sm">Compromisso com o meio ambiente</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Receba Novidades</h2>
+            <p class="text-gray-600 mb-8 max-w-xl mx-auto">Inscreva-se para receber em primeira mão nossas novidades, promoções exclusivas e dicas de decoração.</p>
+            
+            <div class="max-w-md mx-auto flex">
+                <input type="email" placeholder="Seu melhor e-mail" class="flex-1 px-4 py-3 border border-gray-300 rounded-l-button text-sm focus:border-primary transition-colors">
+                <button class="bg-primary text-white px-6 py-3 !rounded-r-button whitespace-nowrap hover:bg-blue-600 transition-colors">
+                    Inscrever-se
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé (Footer) -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <!-- Coluna 1: Informações da loja -->
+                <div>
+                    <a href="#" class="text-2xl font-['Pacifico'] text-white mb-4 inline-block">logo</a>
+                    <p class="text-gray-400 mb-4">Peças únicas de vidro e cerâmica pintadas à mão em São Paulo.</p>
+                    <div class="flex items-center mb-2">
+                        <div class="w-5 h-5 flex items-center justify-center mr-2 text-gray-400">
+                            <i class="ri-map-pin-line"></i>
+                        </div>
+                        <span class="text-gray-400 text-sm">Rua Augusta, 1500 - São Paulo, SP</span>
+                    </div>
+                    <div class="flex items-center mb-2">
+                        <div class="w-5 h-5 flex items-center justify-center mr-2 text-gray-400">
+                            <i class="ri-phone-line"></i>
+                        </div>
+                        <span class="text-gray-400 text-sm">(11) 3456-7890</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-5 h-5 flex items-center justify-center mr-2 text-gray-400">
+                            <i class="ri-mail-line"></i>
+                        </div>
+                        <span class="text-gray-400 text-sm">contato@arteemvidro.com.br</span>
+                    </div>
+                </div>
+                
+                <!-- Coluna 2: Links úteis -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Links Úteis</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Sobre Nós</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Produtos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Perguntas Frequentes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Política de Entrega</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Coluna 3: Categorias -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Categorias</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Vasos Decorativos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Xícaras Artesanais</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Conjuntos de Chá</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Peças Exclusivas</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Presentes</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Coluna 4: Redes sociais e pagamento -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Siga-nos</h3>
+                    <div class="flex space-x-3 mb-6">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-instagram-line"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-facebook-line"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-pinterest-line"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-whatsapp-line"></i>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold mb-4">Formas de Pagamento</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <div class="w-10 h-6 bg-white rounded flex items-center justify-center">
+                            <div class="w-6 h-6 flex items-center justify-center text-blue-700">
+                                <i class="ri-visa-fill"></i>
+                            </div>
+                        </div>
+                        <div class="w-10 h-6 bg-white rounded flex items-center justify-center">
+                            <div class="w-6 h-6 flex items-center justify-center text-red-600">
+                                <i class="ri-mastercard-fill"></i>
+                            </div>
+                        </div>
+                        <div class="w-10 h-6 bg-white rounded flex items-center justify-center">
+                            <div class="w-6 h-6 flex items-center justify-center text-blue-800">
+                                <i class="ri-paypal-fill"></i>
+                            </div>
+                        </div>
+                        <div class="w-10 h-6 bg-white rounded flex items-center justify-center">
+                            <div class="w-6 h-6 flex items-center justify-center text-green-600">
+                                <i class="ri-bank-card-fill"></i>
+                            </div>
+                        </div>
+                        <div class="w-10 h-6 bg-white rounded flex items-center justify-center">
+                            <div class="w-6 h-6 flex items-center justify-center text-blue-500">
+                                <i class="ri-alipay-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Arte em Vidro e Cerâmica. Todos os direitos reservados.</p>
+                    <div class="flex space-x-4 text-sm">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Termos de Uso</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Política de Privacidade</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script id="headerScroll">
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('header');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('shadow');
+                } else {
+                    header.classList.remove('shadow');
+                }
+            });
+        });
+    </script>
+
+    <script id="addToCartButtons">
+        document.addEventListener('DOMContentLoaded', function() {
+            const addToCartButtons = document.querySelectorAll('.product-card button');
+            
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const productName = this.closest('.product-card').querySelector('h3').textContent;
+                    
+                    // Animação de clique
+                    this.classList.add('bg-green-600');
+                    this.textContent = 'Adicionado ✓';
+                    
+                    setTimeout(() => {
+                        this.classList.remove('bg-green-600');
+                        this.textContent = 'Adicionar ao Carrinho';
+                    }, 1500);
+                    
+                    // Aqui você adicionaria a lógica para adicionar ao carrinho
+                    console.log(`Produto "${productName}" adicionado ao carrinho`);
+                    
+                    // Atualizar contador do carrinho
+                    const cartCounter = document.querySelector('.ri-shopping-cart-line').nextElementSibling;
+                    const currentCount = parseInt(cartCounter.textContent);
+                    cartCounter.textContent = currentCount + 1;
+                });
+            });
+        });
+    </script>
+
+    <script id="newsletterSubscription">
+        document.addEventListener('DOMContentLoaded', function() {
+            const newsletterForm = document.querySelector('.newsletter-section .flex');
+            const emailInput = newsletterForm.querySelector('input[type="email"]');
+            const subscribeButton = newsletterForm.querySelector('button');
+            
+            subscribeButton.addEventListener('click', function() {
+                const email = emailInput.value.trim();
+                
+                if (!email) {
+                    emailInput.classList.add('border-red-500');
+                    return;
+                }
+                
+                if (!isValidEmail(email)) {
+                    emailInput.classList.add('border-red-500');
+                    return;
+                }
+                
+                // Simulação de sucesso
+                emailInput.classList.remove('border-red-500');
+                emailInput.value = '';
+                
+                // Feedback visual
+                subscribeButton.textContent = 'Inscrito! ✓';
+                subscribeButton.classList.add('bg-green-600');
+                
+                setTimeout(() => {
+                    subscribeButton.textContent = 'Inscrever-se';
+                    subscribeButton.classList.remove('bg-green-600');
+                }, 2000);
+            });
+            
+            emailInput.addEventListener('focus', function() {
+                this.classList.remove('border-red-500');
+            });
+            
+            function isValidEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+        });
+    </script>
+</body>
+</html>
